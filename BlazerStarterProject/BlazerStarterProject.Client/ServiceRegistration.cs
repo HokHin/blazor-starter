@@ -8,5 +8,6 @@ public class ServiceRegistration
     {
         // Add Fluxor State Management
         services.AddFluxor(options => options.ScanAssemblies(typeof(Program).Assembly).UseReduxDevTools());
+        services.AddHttpClient();
     }
 }

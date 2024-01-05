@@ -1,0 +1,43 @@
+﻿@page "/NationalityPredictor"
+@using Fluxor
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+
+@inject HttpClient Http
+@inject IDispatcher Dispatcher
+@inject IState<NationalityPredictorStore> NationalityPredictorStore
+
+<Fluxor.Blazor.Web.StoreInitializer/>
+
+<h3>UserInfoPredictor</h3>
+
+@if (NationalityPredictorStore.Value.User!.Count != 0)
+{
+    <div>
+        <p>Count: @NationalityPredictorStore.Value.User.Count</p>
+        <p>Name: @NationalityPredictorStore.Value.User.Name</p>
+
+        <ul>
+            @foreach (var countryInfo in NationalityPredictorStore.Value.User.Country)
+            {
+                <li>
+                    CountryId: @countryInfo.Country_id, Probability: @countryInfo.Probability
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (NationalityPredictorStore.Value.Initialized == false)
+        {
+            Dispatcher.Dispatch(new NationalityPredictorActions.GetUserAction());
+            Dispatcher.Dispatch(new NationalityPredictorActions.UserSetInitializedAction());
+        }
+
+        await base.OnInitializedAsync();
+    }
+
+}
