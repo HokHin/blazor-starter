@@ -9,7 +9,42 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Fluxor.Blazor.Web" Version="5.9.1"/>
+        <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="5.9.1"/>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0"/>
+        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Pages\CounterActions.cs">
+            <DependentUpon>Counter.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\CounterFeature.cs">
+            <DependentUpon>Counter.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\CounterReducers.cs">
+            <DependentUpon>Counter.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\CounterStore.cs">
+            <DependentUpon>Counter.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\NationalityPredictorStore.cs">
+            <DependentUpon>NationalityPredictor.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\NationalityPredictorActions.cs">
+            <DependentUpon>NationalityPredictor.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\NationalityPredictorFeature.cs">
+            <DependentUpon>NationalityPredictor.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\NationalityPredictorReducers.cs">
+            <DependentUpon>NationalityPredictor.razor</DependentUpon>
+        </Compile>
+        <Compile Update="Pages\NationalityPredictorEffects.cs">
+            <DependentUpon>NationalityPredictor.razor</DependentUpon>
+        </Compile>
     </ItemGroup>
 
 </Project>
